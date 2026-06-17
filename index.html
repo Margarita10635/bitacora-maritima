@@ -21,18 +21,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
 <style>
 :root{
-  --navy:#0C2D4E;
-  --navy-light:#15426E;
-  --navy-pale:#E8EEF4;
-  --gold:#D4AF37;
-  --gold-dark:#A3791E;
-  --ivory:#F4EFE3;
-  --ink:#16263A;
-  --ink-soft:#5A6B7D;
-  --white:#FFFFFF;
-  --line:rgba(12,45,78,0.14);
-  --font-display:'Fraunces',Georgia,serif;
-  --font-body:'Inter',-apple-system,sans-serif;
+--navy:#0C2D4E;
+--navy-light:#15426E;
+--navy-pale:#E8EEF4;
+--gold:#D4AF37;
+--gold-dark:#A3791E;
+--ivory:#F4EFE3;
+--ink:#16263A;
+--ink-soft:#5A6B7D;
+--white:#FFFFFF;
+--line:rgba(12,45,78,0.14);
+--font-display:'Fraunces',Georgia,serif;
+--font-body:'Inter',-apple-system,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -48,7 +48,6 @@ a{color:inherit}
 .btn-outline:hover{background:rgba(255,255,255,0.08)}
 .btn-outline-navy{background:transparent;border-color:var(--line);color:var(--navy)}
 .btn-outline-navy:hover{background:var(--navy-pale)}
-
 header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);border-bottom:0.5px solid var(--line)}
 header.site .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -58,7 +57,6 @@ header.site .bar{display:flex;align-items:center;justify-content:space-between;p
 nav.links{display:flex;align-items:center;gap:26px}
 nav.links a{font-size:13.5px;color:var(--ink-soft);text-decoration:none}
 nav.links a:hover{color:var(--navy)}
-
 .hero{position:relative;background:var(--navy);color:var(--white);overflow:hidden;padding:72px 0 90px}
 .hero::before{content:'';position:absolute;inset:0;opacity:0.16;background-image:repeating-linear-gradient(115deg, transparent 0px, transparent 78px, rgba(212,175,55,0.5) 79px, transparent 80px);pointer-events:none}
 .hero-inner{position:relative;display:grid;grid-template-columns:1.05fr 0.85fr;gap:48px;align-items:center}
@@ -68,33 +66,34 @@ nav.links a:hover{color:var(--navy)}
 .hero p.lead{font-size:16.5px;color:rgba(255,255,255,0.78);max-width:480px;margin-bottom:30px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
 .hero-note{font-size:12.5px;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:7px}
-
 .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:26px;backdrop-filter:blur(2px)}
 .hero-card .row-stat{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.12)}
 .hero-card .row-stat:last-child{border-bottom:none}
 .hero-card .row-stat .n{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--gold)}
 .hero-card .row-stat .l{font-size:13px;color:rgba(255,255,255,0.7)}
-
 .section{padding:80px 0}
 .section-ivory{background:var(--ivory)}
 .section-head{max-width:620px;margin-bottom:46px}
 .section-head .tag{font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px;display:block}
 .section-head h2{font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--navy);line-height:1.25;margin-bottom:12px}
 .section-head p{font-size:15.5px;color:var(--ink-soft)}
-
-.grid-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.cat-card{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--white)}
-.cat-card i{font-size:24px;color:var(--gold-dark);margin-bottom:14px}
-.cat-card h3{font-size:15.5px;font-weight:600;color:var(--navy);margin-bottom:7px}
-.cat-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
-
+.quick-pills{display:flex;gap:10px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+.quick-pills::-webkit-scrollbar{display:none}
+.quick-pills a{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--navy);background:var(--navy-pale);border:1px solid transparent;padding:9px 18px;border-radius:30px;text-decoration:none;white-space:nowrap;transition:background 0.15s ease}
+.quick-pills a:hover{background:var(--gold);color:var(--navy)}
+.quick-pills a i{font-size:15px;color:var(--gold-dark)}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.topic-card{position:relative;background:var(--navy-light);border-radius:16px;padding:26px 28px;min-height:140px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;text-decoration:none}
+.topic-card::after{content:'';position:absolute;top:0;right:0;width:120px;height:100%;background:rgba(255,255,255,0.045);border-radius:50% 0 0 50%/100% 0 0 100%;transform:translateX(40%)}
+.topic-card .tc-eyebrow{position:relative;font-size:11.5px;font-weight:600;letter-spacing:0.4px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:8px}
+.topic-card .tc-title{position:relative;font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--white);line-height:1.3;max-width:78%}
+.topic-card .tc-arrow{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:16px}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
 .step{padding:28px 24px;border-right:1px solid var(--line)}
 .step:last-child{border-right:none}
 .step .num{font-family:var(--font-display);font-size:13px;color:var(--gold-dark);font-weight:600;margin-bottom:10px}
 .step h4{font-size:14.5px;font-weight:600;color:var(--navy);margin-bottom:7px}
 .step p{font-size:13px;color:var(--ink-soft);line-height:1.55}
-
 .pricing{display:flex;justify-content:center}
 .price-card{max-width:460px;width:100%;background:var(--navy);color:var(--white);border-radius:18px;padding:40px 36px;text-align:center;position:relative;overflow:hidden}
 .price-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.18),transparent 70%)}
@@ -107,7 +106,6 @@ nav.links a:hover{color:var(--navy)}
 .price-list li:last-child{border-bottom:none}
 .price-list li i{color:var(--gold);font-size:16px;margin-top:1px;flex-shrink:0}
 .price-card .btn-gold{width:100%}
-
 .redeem-box{max-width:460px;margin:18px auto 0;text-align:left}
 .redeem-box label{display:block;font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:6px}
 .redeem-row{display:flex;gap:8px}
@@ -116,15 +114,12 @@ nav.links a:hover{color:var(--navy)}
 .redeem-row button{font-family:var(--font-body);font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:transparent;color:var(--white);cursor:pointer;white-space:nowrap}
 .redeem-row button:hover{background:rgba(255,255,255,0.1)}
 .redeem-msg{font-size:12px;color:rgba(255,255,255,0.55);margin-top:8px;min-height:16px}
-
 .faq{max-width:740px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--line);padding:20px 0}
 .faq-item h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:7px}
 .faq-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
-
 .disclaimer{background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:12.5px;color:var(--ink-soft);line-height:1.65;display:flex;gap:12px}
 .disclaimer i{color:var(--gold-dark);font-size:18px;flex-shrink:0;margin-top:1px}
-
 footer.site{background:var(--navy);color:rgba(255,255,255,0.6);padding:44px 0 26px}
 footer.site .f-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:28px}
 footer.site .brand .t{color:var(--white)}
@@ -132,246 +127,228 @@ footer.site .f-links{display:flex;gap:28px;flex-wrap:wrap}
 footer.site .f-links a{font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
 footer.site .f-links a:hover{color:var(--gold)}
 footer.site .f-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;font-size:11.5px;color:rgba(255,255,255,0.45);line-height:1.7}
-
 @media (max-width:860px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero h1{font-size:32px}
-  .steps{grid-template-columns:1fr}
-  .step{border-right:none;border-bottom:1px solid var(--line)}
-  .step:last-child{border-bottom:none}
-  nav.links{display:none}
+.hero-inner{grid-template-columns:1fr}
+.hero h1{font-size:32px}
+.steps{grid-template-columns:1fr}
+.step{border-right:none;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+nav.links{display:none}
+.topic-card{min-height:120px;padding:22px}
+.topic-card .tc-title{max-width:70%;font-size:17px}
 }
 :focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-
 <header class="site">
-  <div class="wrap bar">
-    <a href="#top" class="brand">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#15426E" stroke-width="5" stroke-linecap="round"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/><line x1="70" y1="173" x2="130" y2="173" opacity="0.3"/></g></svg>
-      <span><span class="t">Bitácora Marítima</span><span class="s">Trámites navales SEMAR</span></span>
-    </a>
-    <nav class="links">
-      <a href="#contenido">Contenido</a>
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#precio">Precio</a>
-      <a href="#preguntas">Preguntas</a>
-    </nav>
-    <a href="#precio" class="btn btn-outline-navy">Obtener acceso</a>
-  </div>
+<div class="wrap bar">
+<a href="#top" class="brand">
+<svg viewBox="0 0 200 200" aria-hidden="true"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#15426E" stroke-width="5" stroke-linecap="round"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/><line x1="70" y1="173" x2="130" y2="173" opacity="0.3"/></g></svg>
+<span><span class="t">Bitácora Marítima</span><span class="s">Trámites</span></span>
+</a>
+<nav class="links">
+<a href="#contenido">Contenido</a>
+<a href="#como-funciona">Cómo funciona</a>
+<a href="#precio">Precio</a>
+<a href="#preguntas">Preguntas</a>
+</nav>
+<a href="#precio" class="btn btn-outline-navy">Obtener acceso</a>
+</div>
+<div class="wrap">
+<nav class="quick-pills" aria-label="Accesos rápidos">
+<a href="#contenido"><i class="ti ti-certificate" aria-hidden="true"></i>Certificación del personal</a>
+<a href="#contenido"><i class="ti ti-id-badge" aria-hidden="true"></i>Libretas de Mar</a>
+<a href="#contenido"><i class="ti ti-ship" aria-hidden="true"></i>Trámites embarcaciones</a>
+<a href="#contenido"><i class="ti ti-anchor" aria-hidden="true"></i>Capitanías de puerto</a>
+<a href="#contenido"><i class="ti ti-stethoscope" aria-hidden="true"></i>Exámenes médicos</a>
+<a href="#contenido"><i class="ti ti-world" aria-hidden="true"></i>Trámites extranjeros</a>
+</nav>
+</div>
 </header>
-
 <section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <div>
-      <span class="eyebrow"><i class="ti ti-anchor" aria-hidden="true"></i> Guía independiente · No oficial de SEMAR</span>
-      <h1>Cada trámite naval, con sus requisitos exactos y <em>sin sorpresas</em> en ventanilla.</h1>
-      <p class="lead">Requisitos, formatos, montos y plazos de cada trámite de embarcaciones, libretas de mar y certificación de personal ante la Secretaría de Marina, organizados en un solo lugar y siempre a la mano.</p>
-      <div class="hero-actions">
-        <a href="#precio" class="btn btn-gold">Obtener acceso completo <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-        <a href="#contenido" class="btn btn-outline">Ver contenido</a>
-      </div>
-      <div class="hero-note"><i class="ti ti-lock" aria-hidden="true"></i> Pago único · Acceso permanente · Sin suscripción</div>
-    </div>
-    <div class="hero-card">
-      <div class="row-stat"><span class="l">Trámites de embarcaciones</span><span class="n">24</span></div>
-      <div class="row-stat"><span class="l">Trámites de libretas de mar</span><span class="n">18</span></div>
-      <div class="row-stat"><span class="l">Categorías documentadas</span><span class="n">16</span></div>
-      <div class="row-stat"><span class="l">Fuente</span><span class="n" style="font-size:14px">Formatos oficiales SEMAR</span></div>
-    </div>
-  </div>
+<div class="wrap hero-inner">
+<div>
+<span class="eyebrow"><i class="ti ti-anchor" aria-hidden="true"></i> Guía independiente</span>
+<h1>Cada trámite marítimo, con sus requisitos exactos y <em>sin sorpresas</em> en ventanilla.</h1>
+<p class="lead">Requisitos, formatos, montos y plazos de cada trámite de embarcaciones, libretas de mar y certificación de personal ante la Secretaría de Marina, organizados en un solo lugar y siempre a la mano.</p>
+<div class="hero-actions">
+<a href="#precio" class="btn btn-gold">Obtener acceso completo <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+<a href="#contenido" class="btn btn-outline">Ver contenido</a>
+</div>
+<div class="hero-note"><i class="ti ti-lock" aria-hidden="true"></i> Pago único · Acceso permanente · Sin suscripción</div>
+</div>
+<div class="hero-card">
+<div class="row-stat"><span class="l">Trámites de embarcaciones</span><span class="n">24</span></div>
+<div class="row-stat"><span class="l">Trámites de libretas de mar</span><span class="n">18</span></div>
+<div class="row-stat"><span class="l">Categorías documentadas</span><span class="n">16</span></div>
+<div class="row-stat"><span class="l">Fuente</span><span class="n" style="font-size:14px">Formatos oficiales SEMAR</span></div>
+</div>
+</div>
 </section>
-
-<section class="section" id="contenido">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag">Qué incluye</span>
-      <h2>Todo lo que un gestor naviero necesita revisar antes de presentar un trámite.</h2>
-      <p>Cada ficha incluye el fundamento jurídico, los documentos que deben anexarse, el monto de derechos vigente, el plazo de respuesta y la vigencia de la autorización.</p>
-    </div>
-    <div class="grid-cats">
-      <div class="cat-card">
-        <i class="ti ti-ship" aria-hidden="true"></i>
-        <h3>Arribo y despacho de embarcaciones</h3>
-        <p>Mayores y menores, altura y cabotaje, despachos extraordinarios vía pesca, barcazas, buques sismológicos, transbordadores y operaciones fuera de costa.</p>
-      </div>
-      <div class="cat-card">
-        <i class="ti ti-anchor" aria-hidden="true"></i>
-        <h3>Enmienda, fondeo, remoción y desguace</h3>
-        <p>Autorizaciones de amarre temporal, enmienda de posición, fondeo, remoción de derrelictos y desguace de embarcaciones, con sus montos exactos.</p>
-      </div>
-      <div class="cat-card">
-        <i class="ti ti-id-badge" aria-hidden="true"></i>
-        <h3>Libretas de mar</h3>
-        <p>Expedición, renovación y refrendo por categoría: cubierta, máquinas, cámara, cocina, buzo y técnico extranjero, con tiempos de embarque requeridos.</p>
-      </div>
-      <div class="cat-card">
-        <i class="ti ti-certificate" aria-hidden="true"></i>
-        <h3>Certificación de personal</h3>
-        <p>Requisitos de capacitación STCW, constancias médicas y documentos de identidad marítima exigidos por la Unidad de Capitanías de Puerto.</p>
-      </div>
-      <div class="cat-card">
-        <i class="ti ti-file-text" aria-hidden="true"></i>
-        <h3>Formatos y documentos de personalidad</h3>
-        <p>Modelos de escrito libre, cartas poder y criterios sobre qué documento acredita personalidad o interés jurídico en cada caso.</p>
-      </div>
-      <div class="cat-card">
-        <i class="ti ti-sitemap" aria-hidden="true"></i>
-        <h3>Diagramas de ascenso y capitanías</h3>
-        <p>Rutas de ascenso por categoría y directorio de capitanías de puerto con horarios, teléfonos y correos de contacto.</p>
-      </div>
-    </div>
-  </div>
+<section class="section" id="contenido" style="background:var(--ivory)">
+<div class="wrap">
+<div class="section-head">
+<span class="tag">Qué incluye</span>
+<h2>Todos los trámites organizados por tema, listos para consultar.</h2>
+<p>Cada ficha incluye el fundamento jurídico, los documentos que deben anexarse, el monto de derechos vigente, el plazo de respuesta y la vigencia de la autorización.</p>
+</div>
+<div class="topic-grid">
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Certificación del personal</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Libretas de Mar</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites de embarcaciones</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato escrito libre</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Documentos de personalidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámite Cédula Profesional</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Exámenes médicos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Diagramas de ascensos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Capitanías de puerto</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato de singladuras</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites extranjeros</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Autenticidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+</div>
+</div>
 </section>
-
-<section class="section section-ivory" id="como-funciona">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag">Cómo funciona</span>
-      <h2>De la compra al expediente listo, en minutos.</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h4>Obtén tu acceso</h4>
-        <p>Pago único, sin renovaciones. Recibes tu clave de acceso por WhatsApp o correo.</p>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h4>Canjea tu clave</h4>
-        <p>Ingresa tu clave en la bitácora para desbloquear el contenido completo en este navegador.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h4>Busca tu trámite</h4>
-        <p>Filtra por categoría o busca por nombre. Cada ficha muestra exactamente qué llevar.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h4>Presenta sin prevenciones</h4>
-        <p>Llega a capitanía con el expediente completo y evita que te regresen por documentos faltantes.</p>
-      </div>
-    </div>
-  </div>
+<section class="section" id="como-funciona">
+<div class="wrap">
+<div class="section-head">
+<span class="tag">Cómo funciona</span>
+<h2>De la compra al expediente listo, en minutos.</h2>
+</div>
+<div class="steps">
+<div class="step">
+<div class="num">01</div>
+<h4>Obtén tu acceso</h4>
+<p>Pago único, sin renovaciones. Recibes tu clave de acceso por WhatsApp o correo.</p>
+</div>
+<div class="step">
+<div class="num">02</div>
+<h4>Canjea tu clave</h4>
+<p>Ingresa tu clave en la bitácora para desbloquear el contenido completo en este navegador.</p>
+</div>
+<div class="step">
+<div class="num">03</div>
+<h4>Busca tu trámite</h4>
+<p>Filtra por categoría o busca por nombre. Cada ficha muestra exactamente qué llevar.</p>
+</div>
+<div class="step">
+<div class="num">04</div>
+<h4>Presenta sin prevenciones</h4>
+<p>Llega a capitanía con el expediente completo y evita que te regresen por documentos faltantes.</p>
+</div>
+</div>
+</div>
 </section>
-
 <section class="section" id="precio">
-  <div class="wrap">
-    <div class="section-head" style="margin:0 auto 46px;text-align:center">
-      <span class="tag">Precio</span>
-      <h2>Un solo pago. Acceso a toda la bitácora, para siempre.</h2>
-      <p style="margin:0 auto">Sin mensualidades ni límite de consultas. Las actualizaciones a la normativa se reflejan en tu mismo acceso.</p>
-    </div>
-    <div class="pricing">
-      <div class="price-card">
-        <span class="badge-once">Pago único</span>
-        <div class="amount"><sup>$</sup>499<span style="font-size:18px;font-weight:400;color:rgba(255,255,255,0.55)"> MXN</span></div>
-        <div class="amount-note">Acceso completo, sin vencimiento</div>
-        <ul class="price-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i> Las 24 fichas de trámites de embarcaciones</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Las 18 fichas de libretas de mar</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Directorio de capitanías de puerto</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Formatos de escrito libre y carta poder</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Acceso desde cualquier dispositivo</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Actualizaciones futuras incluidas</li>
-        </ul>
-        <a href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20quiero%20obtener%20acceso%20a%20Bit%C3%A1cora%20Mar%C3%ADtima" class="btn btn-gold" id="buy-btn">Solicitar acceso por WhatsApp <i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
-
-        <div class="redeem-box">
-          <label for="redeem-input">¿Ya tienes una clave de acceso?</label>
-          <div class="redeem-row">
-            <input type="text" id="redeem-input" placeholder="Ingresa tu clave" autocomplete="off">
-            <button id="redeem-btn" type="button">Canjear</button>
-          </div>
-          <div class="redeem-msg" id="redeem-msg"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head" style="margin:0 auto 46px;text-align:center">
+<span class="tag">Precio</span>
+<h2>Un solo pago. Acceso a toda la bitácora, para siempre.</h2>
+<p style="margin:0 auto">Sin mensualidades ni límite de consultas. Las actualizaciones a la normativa se reflejan en tu mismo acceso.</p>
+</div>
+<div class="pricing">
+<div class="price-card">
+<span class="badge-once">Pago único</span>
+<div class="amount"><sup>$</sup>50<span style="font-size:18px;font-weight:400;color:rgba(255,255,255,0.55)"> MXN</span></div>
+<div class="amount-note">Acceso completo, sin vencimiento</div>
+<ul class="price-list">
+<li><i class="ti ti-check" aria-hidden="true"></i> Las 24 fichas de trámites de embarcaciones</li>
+<li><i class="ti ti-check" aria-hidden="true"></i> Las 18 fichas de libretas de mar</li>
+<li><i class="ti ti-check" aria-hidden="true"></i> Directorio de capitanías de puerto</li>
+<li><i class="ti ti-check" aria-hidden="true"></i> Formatos de escrito libre y carta poder</li>
+<li><i class="ti ti-check" aria-hidden="true"></i> Acceso desde cualquier dispositivo</li>
+<li><i class="ti ti-check" aria-hidden="true"></i> Actualizaciones futuras incluidas</li>
+</ul>
+<a href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20quiero%20obtener%20acceso%20a%20Bit%C3%A1cora%20Mar%C3%ADtima" class="btn btn-gold" id="buy-btn">Solicitar acceso por WhatsApp <i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+<div class="redeem-box">
+<label for="redeem-input">¿Ya tienes una clave de acceso?</label>
+<div class="redeem-row">
+<input type="text" id="redeem-input" placeholder="Ingresa tu clave" autocomplete="off">
+<button id="redeem-btn" type="button">Canjear</button>
+</div>
+<div class="redeem-msg" id="redeem-msg"></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <section class="section section-ivory" id="preguntas">
-  <div class="wrap">
-    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
-      <span class="tag">Preguntas frecuentes</span>
-      <h2>Antes de obtener tu acceso</h2>
-    </div>
-    <div class="faq">
-      <div class="faq-item">
-        <h4>¿Esta bitácora es un sitio oficial de la Secretaría de Marina?</h4>
-        <p>No. Es una guía independiente que organiza y explica los formatos y requisitos publicados por SEMAR. Para presentar un trámite siempre debes acudir a la capitanía de puerto correspondiente o a los canales oficiales de gob.mx.</p>
-      </div>
-      <div class="faq-item">
-        <h4>¿El pago me da acceso a todo o solo a una sección?</h4>
-        <p>El pago único incluye acceso completo a las 16 categorías documentadas: embarcaciones, libretas de mar, certificación de personal, formatos y directorio de capitanías.</p>
-      </div>
-      <div class="faq-item">
-        <h4>¿Qué pasa si cambian los requisitos o montos oficiales?</h4>
-        <p>La bitácora se actualiza cuando la normativa cambia. Tu acceso ya pagado incluye esas actualizaciones sin costo adicional.</p>
-      </div>
-      <div class="faq-item">
-        <h4>¿Cómo recibo mi clave de acceso después de pagar?</h4>
-        <p>Te la enviamos por WhatsApp o correo electrónico tras confirmar tu pago. Solo necesitas canjearla una vez en este sitio.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
+<span class="tag">Preguntas frecuentes</span>
+<h2>Antes de obtener tu acceso</h2>
+</div>
+<div class="faq">
+<div class="faq-item">
+<h4>¿Esta bitácora es un sitio oficial de la Secretaría de Marina?</h4>
+<p>No. Es una guía independiente que organiza y explica los formatos y requisitos publicados por SEMAR. Para presentar un trámite siempre debes acudir a la capitanía de puerto correspondiente o a los canales oficiales de gob.mx.</p>
+</div>
+<div class="faq-item">
+<h4>¿El pago me da acceso a todo o solo a una sección?</h4>
+<p>El pago único incluye acceso completo a las 16 categorías documentadas: embarcaciones, libretas de mar, certificación de personal, formatos y directorio de capitanías.</p>
+</div>
+<div class="faq-item">
+<h4>¿Qué pasa si cambian los requisitos o montos oficiales?</h4>
+<p>La bitácora se actualiza cuando la normativa cambia. Tu acceso ya pagado incluye esas actualizaciones sin costo adicional.</p>
+</div>
+<div class="faq-item">
+<h4>¿Cómo recibo mi clave de acceso después de pagar?</h4>
+<p>Te la enviamos por WhatsApp o correo electrónico tras confirmar tu pago. Solo necesitas canjearla una vez en este sitio.</p>
+</div>
+</div>
+</div>
 </section>
-
 <section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="disclaimer">
-      <i class="ti ti-info-circle" aria-hidden="true"></i>
-      <div>Bitácora Marítima es un proyecto independiente de consulta y organización documental. No tiene relación oficial con la Secretaría de Marina (SEMAR) ni con el Gobierno de México. Los formatos, montos y requisitos mostrados se basan en publicaciones oficiales vigentes al momento de su recopilación; verifica siempre la información directamente con tu capitanía de puerto antes de presentar un trámite.</div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="disclaimer">
+<i class="ti ti-info-circle" aria-hidden="true"></i>
+<div>Bitácora Marítima es un proyecto independiente de consulta y organización documental. No tiene relación oficial con la Secretaría de Marina (SEMAR) ni con el Gobierno de México. Los formatos, montos y requisitos mostrados se basan en publicaciones oficiales vigentes al momento de su recopilación; verifica siempre la información directamente con tu capitanía de puerto antes de presentar un trámite.</div>
+</div>
+</div>
 </section>
-
 <footer class="site">
-  <div class="wrap">
-    <div class="f-top">
-      <a href="#top" class="brand">
-        <svg viewBox="0 0 200 200" aria-hidden="true" width="30" height="30"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.5"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/></g></svg>
-        <span><span class="t">Bitácora Marítima</span></span>
-      </a>
-      <div class="f-links">
-        <a href="#contenido">Contenido</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#precio">Precio</a>
-        <a href="#preguntas">Preguntas</a>
-        <a href="tramites.html">Ir a la bitácora</a>
-      </div>
-    </div>
-    <div class="f-bottom">
-      Bitácora Marítima — guía independiente de trámites navales. No es un sitio del Gobierno de México ni de la Secretaría de Marina. Para gestiones oficiales, consulta gob.mx/semar.
-    </div>
-  </div>
+<div class="wrap">
+<div class="f-top">
+<a href="#top" class="brand">
+<svg viewBox="0 0 200 200" aria-hidden="true" width="30" height="30"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.5"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/></g></svg>
+<span><span class="t">Bitácora Marítima</span></span>
+</a>
+<div class="f-links">
+<a href="#contenido">Contenido</a>
+<a href="#como-funciona">Cómo funciona</a>
+<a href="#precio">Precio</a>
+<a href="#preguntas">Preguntas</a>
+<a href="tramites.html">Ir a la bitácora</a>
+</div>
+</div>
+<div class="f-bottom">
+Bitácora Marítima — guía independiente de trámites navales. No es un sitio del Gobierno de México ni de la Secretaría de Marina. Para gestiones oficiales, consulta gob.mx/semar.
+</div>
+</div>
 </footer>
-
 <script>
 document.getElementById('redeem-btn').addEventListener('click', function(){
-  var input = document.getElementById('redeem-input');
-  var msg = document.getElementById('redeem-msg');
-  var code = input.value.trim();
-  if(!code){
-    msg.textContent = 'Escribe tu clave de acceso para continuar.';
-    msg.style.color = 'rgba(255,255,255,0.55)';
-    return;
-  }
-  try{
-    localStorage.setItem('bitacora_access_code', code);
-  }catch(e){}
-  msg.textContent = 'Clave guardada. Abriendo la bitácora...';
-  msg.style.color = '#D4AF37';
-  setTimeout(function(){
-    window.location.href = 'tramites.html?code=' + encodeURIComponent(code);
-  }, 600);
+var input = document.getElementById('redeem-input');
+var msg = document.getElementById('redeem-msg');
+var code = input.value.trim();
+if(!code){
+msg.textContent = 'Escribe tu clave de acceso para continuar.';
+msg.style.color = 'rgba(255,255,255,0.55)';
+return;
+}
+try{
+localStorage.setItem('bitacora_access_code', code);
+}catch(e){}
+msg.textContent = 'Clave guardada. Abriendo la bitácora...';
+msg.style.color = '#D4AF37';
+setTimeout(function(){
+window.location.href = 'tramites.html?code=' + encodeURIComponent(code);
+}, 600);
 });
 document.getElementById('redeem-input').addEventListener('keydown', function(e){
-  if(e.key === 'Enter'){ document.getElementById('redeem-btn').click(); }
+if(e.key === 'Enter'){ document.getElementById('redeem-btn').click(); }
 });
 </script>
-
 </body>
 </html>
