@@ -442,16 +442,19 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 
    <div id="libretas" class="sec">
   <div class="ptitle">Libretas de Mar</div>
-  <div class="subtab-bar" id="lib-tabs">
-    <div class="subtab on" onclick="showLibTab('A',this)">Tipo A — Personal subalterno</div>
-    <div class="subtab" onclick="showLibTab('B',this)">Tipo B — Sector pesquero</div>
-    <div class="subtab" onclick="showLibTab('C',this)">Tipo C — Sector turístico</div>
-    <div class="subtab" onclick="showLibTab('D',this)">Tipo D — Costa Afuera</div>
-    <div class="subtab" onclick="showLibTab('DIM',this)">Documento Identidad Marítima</div>
-    <div class="subtab" onclick="showLibTab('COMP',this)">Trámites complementarios</div>
+
+  <div id="lib-categorias">
+    <div class="row click" onclick="showLibTab('A')"><span>Tipo A — Personal subalterno nivel apoyo</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+    <div class="row click" onclick="showLibTab('B')"><span>Tipo B — Sector pesquero</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+    <div class="row click" onclick="showLibTab('C')"><span>Tipo C — Sector turístico</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+    <div class="row click" onclick="showLibTab('D')"><span>Tipo D — Operaciones Costa Afuera</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+    <div class="row click" onclick="showLibTab('DIM')"><span>Documento de Identidad Marítima</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+    <div class="row click" onclick="showLibTab('COMP')"><span>Trámites complementarios</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
-  <div class="subtab-panel on" id="libtab-A">
+
+  <div class="subtab-panel" id="libtab-A">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Tipo A — Personal subalterno nivel apoyo</div>
     <div class="row click" onclick="showDetLib('lib_marinero')"><span>Marinero — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDetLib('lib_marinero_draga')"><span>Marinero de Draga — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDetLib('lib_ayte_maquinas')"><span>Ayudante de Máquinas — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
@@ -471,8 +474,10 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
     <div class="row click" onclick="showDetLib('lib_refrendo')"><span>Refrendo Libreta de Mar Tipo A — todas las categorías</span><span><span class="badge bb">Exp/Ren</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDetLib('lib_renovacion')"><span>Renovación Libreta Tipo A — Personal Subalterno Nivel Apoyo</span><span><span class="badge ba">Renovación</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
+
   <div class="subtab-panel" id="libtab-B">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Tipo B — Sector pesquero</div>
     <div class="row click" onclick="showDet('b1')"><span>Marinero Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('b2')"><span>Marinero Pescador Especializado — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('b3')"><span>Ayudante de Cocina Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
@@ -480,24 +485,32 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
     <div class="row click" onclick="showDet('b5')"><span>Cocinero Pescador — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('b6')"><span>Renovación Libreta Tipo B — todas las categorías</span><span><span class="badge ba">083-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
+
   <div class="subtab-panel" id="libtab-C">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Tipo C — Sector turístico</div>
     <div class="row click" onclick="showDet('c1')"><span>Marinero Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('c2')"><span>Ayudante de Máquinas Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('c3')"><span>Renovación Libreta Tipo C — todas las categorías</span><span><span class="badge ba">079-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
+
   <div class="subtab-panel" id="libtab-D">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Tipo D — Operaciones Costa Afuera</div>
     <div class="row click" onclick="showDet('d1')"><span>Operaciones Costa Afuera — Expedición primera vez</span><span><span class="badge bg">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('d2')"><span>Operaciones Costa Afuera — Renovación</span><span><span class="badge ba">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
+
   <div class="subtab-panel" id="libtab-DIM">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Documento de Identidad Marítima</div>
     <div class="row click" onclick="showDet('dim1')"><span>Documento de Identidad Marítima — Expedición primera vez</span><span><span class="badge bg">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('dim2')"><span>Documento de Identidad Marítima — Renovación</span><span><span class="badge ba">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
   </div>
- 
+
   <div class="subtab-panel" id="libtab-COMP">
+    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
+    <div class="stitle" style="margin-top:0">Trámites complementarios</div>
     <div class="row click" onclick="showDet('comp1')"><span>Certificación de Constancia de Tiempo de Embarque</span><span><span class="badge bg">070-006-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('comp2')"><span>Copia Certificada y Certificación de Documentos</span><span><span class="badge bg">N/A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
     <div class="row click" onclick="showDet('comp3')"><span>Dispensa para Personal Subalterno (Tipo A)</span><span><span class="badge bd">05-013</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
