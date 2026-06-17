@@ -77,11 +77,6 @@ nav.links a:hover{color:var(--navy)}
 .section-head .tag{font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px;display:block}
 .section-head h2{font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--navy);line-height:1.25;margin-bottom:12px}
 .section-head p{font-size:15.5px;color:var(--ink-soft)}
-.quick-pills{display:flex;gap:10px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
-.quick-pills::-webkit-scrollbar{display:none}
-.quick-pills a{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--navy);background:var(--navy-pale);border:1px solid transparent;padding:9px 18px;border-radius:30px;text-decoration:none;white-space:nowrap;transition:background 0.15s ease}
-.quick-pills a:hover{background:var(--gold);color:var(--navy)}
-.quick-pills a i{font-size:15px;color:var(--gold-dark)}
 .topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .topic-card{position:relative;background:var(--navy-light);border-radius:16px;padding:26px 28px;min-height:140px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;text-decoration:none}
 .topic-card::after{content:'';position:absolute;top:0;right:0;width:120px;height:100%;background:rgba(255,255,255,0.045);border-radius:50% 0 0 50%/100% 0 0 100%;transform:translateX(40%)}
@@ -156,16 +151,6 @@ nav.links{display:none}
 </nav>
 <a href="#precio" class="btn btn-outline-navy">Obtener acceso</a>
 </div>
-<div class="wrap">
-<nav class="quick-pills" aria-label="Accesos rápidos">
-<a href="#contenido"><i class="ti ti-certificate" aria-hidden="true"></i>Certificación del personal</a>
-<a href="#contenido"><i class="ti ti-id-badge" aria-hidden="true"></i>Libretas de Mar</a>
-<a href="#contenido"><i class="ti ti-ship" aria-hidden="true"></i>Trámites embarcaciones</a>
-<a href="#contenido"><i class="ti ti-anchor" aria-hidden="true"></i>Capitanías de puerto</a>
-<a href="#contenido"><i class="ti ti-stethoscope" aria-hidden="true"></i>Exámenes médicos</a>
-<a href="#contenido"><i class="ti ti-world" aria-hidden="true"></i>Trámites extranjeros</a>
-</nav>
-</div>
 </header>
 <section class="hero" id="top">
 <div class="wrap hero-inner">
@@ -196,18 +181,18 @@ nav.links{display:none}
 <p>Cada ficha incluye el fundamento jurídico, los documentos que deben anexarse, el monto de derechos vigente, el plazo de respuesta y la vigencia de la autorización.</p>
 </div>
 <div class="topic-grid">
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Certificación del personal</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Libretas de Mar</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites de embarcaciones</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato escrito libre</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Documentos de personalidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámite Cédula Profesional</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Exámenes médicos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Diagramas de ascensos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Capitanías de puerto</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato de singladuras</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites extranjeros</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
-<a href="tramites.html" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Autenticidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#cert" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Certificación del personal</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#libretas" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Libretas de Mar</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#emb" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites de embarcaciones</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#escrito" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato escrito libre</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#personalidad" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Documentos de personalidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#cedula" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámite Cédula Profesional</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#medicos" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Exámenes médicos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#diag" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Diagramas de ascensos</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#caps" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Capitanías de puerto</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#sing" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Formato de singladuras</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#ext" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Trámites extranjeros</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
+<a href="tramites.html#auth" class="topic-card"><span class="tc-eyebrow">Consulta</span><span class="tc-title">Autenticidad</span><span class="tc-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span></a>
 </div>
 </div>
 </section>
