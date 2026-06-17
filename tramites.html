@@ -168,7 +168,132 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
     <div id="gate-msg" style="font-size:12px;color:#F09595;min-height:16px;margin-bottom:12px"></div>
     <button id="gate-btn" type="button" style="width:100%;font-size:14px;font-weight:600;padding:11px;border-radius:8px;border:none;background:#D4AF37;color:#0C2D4E;cursor:pointer;margin-bottom:14px">Entrar</button>
     <a href="index.html" style="font-size:12px;color:rgba(255,255,255,0.6);text-decoration:underline">¿No tienes clave? Obtén tu acceso aquí</a>
-  </div>
+<!-- ============================================================
+     PANEL GENERADOR DE CLAVES — Bitácora Marítima
+     ============================================================
+     INSTRUCCIONES DE INSTALACIÓN:
+
+     1. Abre tu archivo tramites.html en el editor de GitHub.
+
+     2. Busca esta línea (usa Ctrl+F en el editor):
+        <a href="index.html" style="font-size:12px;color:rgba(255,255,255,0.6);text-decoration:underline">¿No tienes clave? Obtén tu acceso aquí</a>
+
+     3. Justo DESPUÉS de esa línea (y antes de los dos </div></div>
+        que cierran el cuadro de acceso), pega TODO el bloque de
+        abajo, desde <div id="admin-gate"... hasta el </script> final.
+
+     4. Para abrir el panel administrador, ve a:
+        tramites.html#admin
+        (agrega #admin al final de la URL en tu navegador)
+
+     5. Te pedirá tu clave de administradora. La clave por defecto
+        que dejé es: ADMIN-MARGARITA-2026
+        Puedes cambiarla buscando esa palabra abajo en el código
+        y reemplazándola por la que tú quieras.
+
+     6. Una vez dentro, da clic en "Generar clave nueva". Te
+        mostrará un código como MAR-7K2X9. Cópialo.
+
+     7. PASO MANUAL OBLIGATORIO: para que esa clave funcione de
+        verdad, debes ir al final de tramites.html, buscar:
+        var VALID_CODES = [...]
+        y agregar la clave nueva dentro de las comillas, separada
+        por coma, por ejemplo:
+        var VALID_CODES = ["DEMO-2026", "MAR-7K2X9"];
+        Luego sube el cambio a GitHub y Vercel lo activa solo.
+     ============================================================ -->
+
+<div id="admin-gate" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div style="max-width:420px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
+<h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Panel de administradora</h2>
+<p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:20px;line-height:1.55">Ingresa tu clave de administradora para generar nuevas claves de acceso.</p>
+<input id="admin-input" type="text" placeholder="Clave de administradora" autocomplete="off" style="width:100%;font-size:14px;padding:11px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.08);color:#fff;margin-bottom:10px">
+<div id="admin-msg" style="font-size:12px;color:#F09595;min-height:16px;margin-bottom:12px"></div>
+<button id="admin-btn" type="button" style="width:100%;font-size:14px;font-weight:600;padding:11px;border-radius:8px;border:none;background:#D4AF37;color:#0C2D4E;cursor:pointer;margin-bottom:14px">Entrar al panel</button>
+<a href="tramites.html" style="font-size:12px;color:rgba(255,255,255,0.6);text-decoration:underline">Volver a la bitácora</a>
+</div>
+</div>
+
+<div id="admin-panel" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div style="max-width:460px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
+<h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Generador de claves de acceso</h2>
+<p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:24px;line-height:1.6">Cada vez que alguien te pague, genera una clave nueva y entrégasela. Después agrégala manualmente al arreglo <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px">VALID_CODES</code> en este archivo y sube el cambio a GitHub.</p>
+<button id="gen-btn" type="button" style="width:100%;font-size:14px;font-weight:600;padding:11px;border-radius:8px;border:none;background:#D4AF37;color:#0C2D4E;cursor:pointer;margin-bottom:16px">Generar clave nueva</button>
+<div id="gen-result" style="display:none;margin-bottom:16px">
+<div style="font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:6px">Clave generada — cópiala y agrégala a VALID_CODES:</div>
+<div style="display:flex;gap:8px">
+<input id="gen-code" type="text" readonly style="flex:1;font-family:monospace;font-size:16px;font-weight:600;text-align:center;padding:11px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.1);color:#D4AF37;letter-spacing:1px">
+<button id="copy-btn" type="button" style="font-size:13px;font-weight:600;padding:0 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:transparent;color:#fff;cursor:pointer">Copiar</button>
+</div>
+<div id="copy-msg" style="font-size:11.5px;color:#D4AF37;margin-top:8px;min-height:14px"></div>
+</div>
+<div id="history-box" style="text-align:left;border-top:1px solid rgba(255,255,255,0.12);padding-top:16px;margin-top:8px">
+<div style="font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:8px">Claves generadas en esta sesión:</div>
+<div id="history-list" style="font-size:12.5px;color:rgba(255,255,255,0.85);font-family:monospace;line-height:1.8"></div>
+</div>
+<a href="tramites.html" style="font-size:12px;color:rgba(255,255,255,0.6);text-decoration:underline;display:block;margin-top:18px">Salir del panel</a>
+</div>
+</div>
+
+<script>
+(function(){
+  var ADMIN_KEY = "ADMIN-Alfred@11"; // <-- cambia esto por tu propia clave secreta
+
+  function showAdminFlow(){
+    if(window.location.hash === '#admin'){
+      document.getElementById('admin-gate').style.display = 'flex';
+    }
+  }
+  showAdminFlow();
+
+  document.getElementById('admin-btn').addEventListener('click', function(){
+    var val = document.getElementById('admin-input').value.trim();
+    var msg = document.getElementById('admin-msg');
+    if(val === ADMIN_KEY){
+      document.getElementById('admin-gate').style.display = 'none';
+      document.getElementById('admin-panel').style.display = 'flex';
+    } else {
+      msg.textContent = 'Clave incorrecta.';
+    }
+  });
+
+  document.getElementById('admin-input').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ document.getElementById('admin-btn').click(); }
+  });
+
+  function generarClave(){
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // sin O,0,I,1 para evitar confusion
+    var code = 'MAR-';
+    for(var i=0;i<5;i++){
+      code += chars.charAt(Math.floor(Math.random()*chars.length));
+    }
+    return code;
+  }
+
+  var historial = [];
+
+  document.getElementById('gen-btn').addEventListener('click', function(){
+    var code = generarClave();
+    historial.push(code);
+    document.getElementById('gen-code').value = code;
+    document.getElementById('gen-result').style.display = 'block';
+    document.getElementById('copy-msg').textContent = '';
+    var list = document.getElementById('history-list');
+    list.innerHTML = historial.map(function(c){ return c; }).join('<br>');
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', function(){
+    var input = document.getElementById('gen-code');
+    input.select();
+    try{
+      navigator.clipboard.writeText(input.value);
+      document.getElementById('copy-msg').textContent = 'Copiado. Ahora agrégala a VALID_CODES y sube a GitHub.';
+    }catch(e){
+      document.getElementById('copy-msg').textContent = 'Selecciona el texto y copia con Ctrl+C.';
+    }
+  });
+})();
+</script>
 </div>
 
 <div class="app">
