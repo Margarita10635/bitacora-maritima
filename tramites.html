@@ -1069,11 +1069,14 @@ function showDetLib(id){
   document.getElementById('detlib').classList.add('on');
 }
 
-function showLibTab(tab,el){
-  document.querySelectorAll('#lib-tabs .subtab').forEach(t=>t.classList.remove('on'));
+function showLibTab(tab){
+  document.getElementById('lib-categorias').style.display = 'none';
   document.querySelectorAll('#libretas .subtab-panel').forEach(p=>p.classList.remove('on'));
-  el.classList.add('on');
   document.getElementById('libtab-'+tab).classList.add('on');
+}
+function backToLibCats(){
+  document.querySelectorAll('#libretas .subtab-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('lib-categorias').style.display = 'block';
 }
   function backToLibretas(){
   show('libretas',document.querySelector('.navs .nav:nth-child(3)'));
