@@ -159,7 +159,19 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 .subtab:hover{color:var(--brand-navy)}
 .subtab.on{background:var(--brand-navy);color:#fff;border-color:var(--brand-navy)}
 .subtab-panel{display:none}
-.subtab-panel.on{display:block}.req-step{display:flex;align-items:flex-start;gap:7px;padding:7px 9px;background:var(--color-background-secondary);border-radius:6px;margin-bottom:4px}
+.subtab-panel.on{display:block}
+.lib-layout{display:flex;gap:18px;align-items:flex-start}
+.lib-col-left{width:190px;min-width:190px;flex-shrink:0}
+.lib-catlink{font-size:11.5px;color:var(--color-text-secondary);padding:8px 10px;border-radius:6px;cursor:pointer;margin-bottom:3px;line-height:1.4}
+.lib-catlink:hover{background:var(--color-background-secondary);color:var(--brand-navy)}
+.lib-catlink.on{background:var(--brand-navy);color:#fff;font-weight:500}
+.lib-col-right{flex:1;min-width:0}
+.lib-listpanel{display:none}
+.lib-listpanel.on{display:block}
+@media (max-width:700px){
+  .lib-layout{flex-direction:column}
+  .lib-col-left{width:100%}
+}.req-step{display:flex;align-items:flex-start;gap:7px;padding:7px 9px;background:var(--color-background-secondary);border-radius:6px;margin-bottom:4px}
 .rt{font-size:11px;color:var(--color-text-primary);line-height:1.5}
 .rs{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
 </style>
@@ -440,87 +452,81 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
       <div class="link-card"><i class="ti ti-brand-youtube" aria-hidden="true"></i><div><div class="link-t">Tutorial — Registro de título y cédula profesional</div><div class="link-d">Video oficial de la Dirección General de Profesiones (SEP) con el procedimiento paso a paso.</div><a class="link-url" href="https://www.gob.mx/sep" target="_blank">gob.mx/sep — Dirección General de Profesiones</a></div></div>
     </div>
 
-   <div id="libretas" class="sec">
-  <div class="ptitle">Libretas de Mar</div>
+  <div id="libretas" class="sec">
+  <div class="lib-layout">
 
-  <div id="lib-categorias">
-    <div class="row click" onclick="showLibTab('A')"><span>Tipo A — Personal subalterno nivel apoyo</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showLibTab('B')"><span>Tipo B — Sector pesquero</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showLibTab('C')"><span>Tipo C — Sector turístico</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showLibTab('D')"><span>Tipo D — Operaciones Costa Afuera</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showLibTab('DIM')"><span>Documento de Identidad Marítima</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showLibTab('COMP')"><span>Trámites complementarios</span><span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+    <div class="lib-col-left">
+      <div class="ptitle" style="margin-bottom:8px">Libretas de Mar</div>
+      <div class="lib-catlink on" id="libcat-A" onclick="showLibTab('A',this)">Tipo A — Personal subalterno</div>
+      <div class="lib-catlink" id="libcat-B" onclick="showLibTab('B',this)">Tipo B — Sector pesquero</div>
+      <div class="lib-catlink" id="libcat-C" onclick="showLibTab('C',this)">Tipo C — Sector turístico</div>
+      <div class="lib-catlink" id="libcat-D" onclick="showLibTab('D',this)">Tipo D — Costa Afuera</div>
+      <div class="lib-catlink" id="libcat-DIM" onclick="showLibTab('DIM',this)">Documento Identidad Marítima</div>
+      <div class="lib-catlink" id="libcat-COMP" onclick="showLibTab('COMP',this)">Trámites complementarios</div>
+    </div>
 
-  <div class="subtab-panel" id="libtab-A">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Tipo A — Personal subalterno nivel apoyo</div>
-    <div class="row click" onclick="showDetLib('lib_marinero')"><span>Marinero — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_marinero_draga')"><span>Marinero de Draga — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_ayte_maquinas')"><span>Ayudante de Máquinas — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_timonel')"><span>Timonel — ascenso desde Marinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_contramaestre')"><span>Contramaestre — ascenso desde Timonel</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_segundo_camarero')"><span>Segundo Camarero — ascenso desde Ayudante de Cocina</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_primer_camarero')"><span>Primer Camarero — ascenso desde Segundo Camarero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_segundo_cocinero')"><span>Segundo Cocinero — ascenso desde Primer Camarero o Ayudante de Cocina</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_primer_cocinero')"><span>Primer Cocinero — ascenso desde Segundo Cocinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_mayordomo')"><span>Mayordomo — ascenso desde Primer Cocinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_motorista_engrasador')"><span>Motorista Engrasador — ascenso desde Ayudante de Máquinas</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_bombero_bt')"><span>Bombero de Buque Tanque — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_op_electricista')"><span>Operario Electricista — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_op_electronica')"><span>Operario en Electrónica — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_op_mec_esp')"><span>Operario Mecánico Especialista — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_buzo')"><span>Buzo — ascenso desde Asistente de Buzo</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_refrendo')"><span>Refrendo Libreta de Mar Tipo A — todas las categorías</span><span><span class="badge bb">Exp/Ren</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDetLib('lib_renovacion')"><span>Renovación Libreta Tipo A — Personal Subalterno Nivel Apoyo</span><span><span class="badge ba">Renovación</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+    <div class="lib-col-right">
 
-  <div class="subtab-panel" id="libtab-B">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Tipo B — Sector pesquero</div>
-    <div class="row click" onclick="showDet('b1')"><span>Marinero Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('b2')"><span>Marinero Pescador Especializado — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('b3')"><span>Ayudante de Cocina Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('b4')"><span>Ayudante de Máquinas Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('b5')"><span>Cocinero Pescador — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('b6')"><span>Renovación Libreta Tipo B — todas las categorías</span><span><span class="badge ba">083-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+      <div class="lib-listpanel on" id="libtab-A">
+        <div class="row click" onclick="showDetLib('lib_marinero')"><span>Marinero — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_marinero_draga')"><span>Marinero de Draga — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_ayte_maquinas')"><span>Ayudante de Máquinas — primera vez</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_timonel')"><span>Timonel — ascenso desde Marinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_contramaestre')"><span>Contramaestre — ascenso desde Timonel</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_segundo_camarero')"><span>Segundo Camarero — ascenso desde Ayudante de Cocina</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_primer_camarero')"><span>Primer Camarero — ascenso desde Segundo Camarero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_segundo_cocinero')"><span>Segundo Cocinero — ascenso desde Primer Camarero o Ayudante de Cocina</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_primer_cocinero')"><span>Primer Cocinero — ascenso desde Segundo Cocinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_mayordomo')"><span>Mayordomo — ascenso desde Primer Cocinero</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_motorista_engrasador')"><span>Motorista Engrasador — ascenso desde Ayudante de Máquinas</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_bombero_bt')"><span>Bombero de Buque Tanque — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_op_electricista')"><span>Operario Electricista — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_op_electronica')"><span>Operario en Electrónica — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_op_mec_esp')"><span>Operario Mecánico Especialista — ascenso desde Motorista Engrasador</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_buzo')"><span>Buzo — ascenso desde Asistente de Buzo</span><span><span class="badge bg">Expedición</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_refrendo')"><span>Refrendo Libreta de Mar Tipo A — todas las categorías</span><span><span class="badge bb">Exp/Ren</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDetLib('lib_renovacion')"><span>Renovación Libreta Tipo A — Personal Subalterno Nivel Apoyo</span><span><span class="badge ba">Renovación</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
 
-  <div class="subtab-panel" id="libtab-C">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Tipo C — Sector turístico</div>
-    <div class="row click" onclick="showDet('c1')"><span>Marinero Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('c2')"><span>Ayudante de Máquinas Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('c3')"><span>Renovación Libreta Tipo C — todas las categorías</span><span><span class="badge ba">079-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+      <div class="lib-listpanel" id="libtab-B">
+        <div class="row click" onclick="showDet('b1')"><span>Marinero Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('b2')"><span>Marinero Pescador Especializado — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('b3')"><span>Ayudante de Cocina Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('b4')"><span>Ayudante de Máquinas Pescador — Expedición primera vez</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('b5')"><span>Cocinero Pescador — Ascenso</span><span><span class="badge bg">082-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('b6')"><span>Renovación Libreta Tipo B — todas las categorías</span><span><span class="badge ba">083-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
 
-  <div class="subtab-panel" id="libtab-D">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Tipo D — Operaciones Costa Afuera</div>
-    <div class="row click" onclick="showDet('d1')"><span>Operaciones Costa Afuera — Expedición primera vez</span><span><span class="badge bg">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('d2')"><span>Operaciones Costa Afuera — Renovación</span><span><span class="badge ba">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+      <div class="lib-listpanel" id="libtab-C">
+        <div class="row click" onclick="showDet('c1')"><span>Marinero Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('c2')"><span>Ayudante de Máquinas Turístico — Expedición primera vez</span><span><span class="badge bg">05-010</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('c3')"><span>Renovación Libreta Tipo C — todas las categorías</span><span><span class="badge ba">079-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
 
-  <div class="subtab-panel" id="libtab-DIM">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Documento de Identidad Marítima</div>
-    <div class="row click" onclick="showDet('dim1')"><span>Documento de Identidad Marítima — Expedición primera vez</span><span><span class="badge bg">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('dim2')"><span>Documento de Identidad Marítima — Renovación</span><span><span class="badge ba">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-  </div>
+      <div class="lib-listpanel" id="libtab-D">
+        <div class="row click" onclick="showDet('d1')"><span>Operaciones Costa Afuera — Expedición primera vez</span><span><span class="badge bg">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('d2')"><span>Operaciones Costa Afuera — Renovación</span><span><span class="badge ba">05-011</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
 
-  <div class="subtab-panel" id="libtab-COMP">
-    <div class="back-btn" onclick="backToLibCats()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Volver a Libretas de Mar</div>
-    <div class="stitle" style="margin-top:0">Trámites complementarios</div>
-    <div class="row click" onclick="showDet('comp1')"><span>Certificación de Constancia de Tiempo de Embarque</span><span><span class="badge bg">070-006-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp2')"><span>Copia Certificada y Certificación de Documentos</span><span><span class="badge bg">N/A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp3')"><span>Dispensa para Personal Subalterno (Tipo A)</span><span><span class="badge bd">05-013</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp4')"><span>Reposición de Documentos</span><span><span class="badge bg">070-005-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp5')"><span>Autorización de Embarque de Técnico Extranjero</span><span><span class="badge bb">070-002-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp6')"><span>Autorización Técnico Extranjero — Permiso Temporal de Navegación</span><span><span class="badge bb">070-002-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp7')"><span>Tarjeta de Control — Pesca Ribereña, Lacustre y Captura de Camarón</span><span><span class="badge bb">070-004-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp8')"><span>Tarjeta de Control — Estudiantes e Investigadores</span><span><span class="badge bb">070-006-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp9')"><span>Tarjeta de Lago — Tripulantes embarcaciones de recreo</span><span><span class="badge bb">05-014</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
-    <div class="row click" onclick="showDet('comp10')"><span>Tarjeta de Lago — Menores de Edad (mayores de 16 años)</span><span><span class="badge bg">05-016</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      <div class="lib-listpanel" id="libtab-DIM">
+        <div class="row click" onclick="showDet('dim1')"><span>Documento de Identidad Marítima — Expedición primera vez</span><span><span class="badge bg">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('dim2')"><span>Documento de Identidad Marítima — Renovación</span><span><span class="badge ba">05-012</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
+
+      <div class="lib-listpanel" id="libtab-COMP">
+        <div class="row click" onclick="showDet('comp1')"><span>Certificación de Constancia de Tiempo de Embarque</span><span><span class="badge bg">070-006-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp2')"><span>Copia Certificada y Certificación de Documentos</span><span><span class="badge bg">N/A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp3')"><span>Dispensa para Personal Subalterno (Tipo A)</span><span><span class="badge bd">05-013</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp4')"><span>Reposición de Documentos</span><span><span class="badge bg">070-005-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp5')"><span>Autorización de Embarque de Técnico Extranjero</span><span><span class="badge bb">070-002-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp6')"><span>Autorización Técnico Extranjero — Permiso Temporal de Navegación</span><span><span class="badge bb">070-002-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp7')"><span>Tarjeta de Control — Pesca Ribereña, Lacustre y Captura de Camarón</span><span><span class="badge bb">070-004-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp8')"><span>Tarjeta de Control — Estudiantes e Investigadores</span><span><span class="badge bb">070-006-A</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp9')"><span>Tarjeta de Lago — Tripulantes embarcaciones de recreo</span><span><span class="badge bb">05-014</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+        <div class="row click" onclick="showDet('comp10')"><span>Tarjeta de Lago — Menores de Edad (mayores de 16 años)</span><span><span class="badge bg">05-016</span><i class="ti ti-chevron-right arrow" aria-hidden="true"></i></span></div>
+      </div>
+
+    </div>
   </div>
 </div>
     <div id="emb" class="sec">
@@ -1069,14 +1075,17 @@ function showDetLib(id){
   document.getElementById('detlib').classList.add('on');
 }
 
-function showLibTab(tab){
-  document.getElementById('lib-categorias').style.display = 'none';
-  document.querySelectorAll('#libretas .subtab-panel').forEach(p=>p.classList.remove('on'));
+var libCategoriaActual = 'A';
+
+function showLibTab(tab, el){
+  libCategoriaActual = tab;
+  document.querySelectorAll('.lib-catlink').forEach(function(c){ c.classList.remove('on'); });
+  if(el){ el.classList.add('on'); } else {
+    var btn = document.getElementById('libcat-'+tab);
+    if(btn){ btn.classList.add('on'); }
+  }
+  document.querySelectorAll('.lib-listpanel').forEach(function(p){ p.classList.remove('on'); });
   document.getElementById('libtab-'+tab).classList.add('on');
-}
-function backToLibCats(){
-  document.querySelectorAll('#libretas .subtab-panel').forEach(p=>p.classList.remove('on'));
-  document.getElementById('lib-categorias').style.display = 'block';
 }
   function backToLibretas(){
   show('libretas',document.querySelector('.navs .nav:nth-child(3)'));
