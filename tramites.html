@@ -171,6 +171,11 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 @media (max-width:700px){
   .lib-layout{flex-direction:column}
   .lib-col-left{width:100%}
+.app.menu-hidden .sidebar{display:none}
+.app.menu-hidden .main{max-width:100%}
+.menu-back-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--brand-navy);font-weight:500;cursor:pointer;margin-bottom:14px;padding:6px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary)}
+.menu-back-btn:hover{background:var(--color-background-primary)}
+.menu-back-btn i{font-size:13px}
 }.req-step{display:flex;align-items:flex-start;gap:7px;padding:7px 9px;background:var(--color-background-secondary);border-radius:6px;margin-bottom:4px}
 .rt{font-size:11px;color:var(--color-text-primary);line-height:1.5}
 .rs{font-size:10px;color:var(--color-text-tertiary);margin-top:2px}
@@ -905,9 +910,28 @@ function show(id,el){
   if(el)el.classList.add('on');
   if(id==='caps') renderCap(CAPS);
   if(id==='medicos') renderMed(MEDS);
+  document.querySelector('.app').classList.add('menu-hidden');
 }
 
-function backToCert(){
+function showMenu(){
+  document.querySelector('.app').classList.remove('menu-hidden');
+}
+
+(function(){
+  var seccionesConBoton = ['inicio','cert','libretas','emb','escrito','personalidad','cedula','fotos','medicos','diag','caps','sing','ext','auth'];
+  window.addEventListener('DOMContentLoaded', function(){
+    seccionesConBoton.forEach(function(id){
+      var sec = document.getElementById(id);
+      if(!sec) return;
+      var btn = document.createElement('div');
+      btn.className = 'menu-back-btn';
+      btn.setAttribute('onclick','showMenu()');
+      btn.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i> Menú principal';
+      sec.insertBefore(btn, sec.firstChild);
+    });
+  });
+})();
+  function backToCert(){
   show('cert',document.querySelector('.navs .nav:nth-child(2)'));
 }
 
