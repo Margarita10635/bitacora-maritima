@@ -916,10 +916,12 @@ function show(id,el){
 
 function showMenu(){
   document.querySelector('.app').classList.remove('menu-hidden');
+  window.location.hash = '';
 }
 
 (function(){
   var seccionesConBoton = ['inicio','cert','libretas','emb','escrito','personalidad','cedula','fotos','medicos','diag','caps','sing','ext','auth'];
+
   window.addEventListener('DOMContentLoaded', function(){
     seccionesConBoton.forEach(function(id){
       var sec = document.getElementById(id);
@@ -927,9 +929,15 @@ function showMenu(){
       var btn = document.createElement('div');
       btn.className = 'menu-back-btn';
       btn.setAttribute('onclick','showMenu()');
-      btn.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i> Menú principal';
+      btn.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i> Ver todas las secciones';
       sec.insertBefore(btn, sec.firstChild);
     });
+
+    var hashId = window.location.hash.replace('#','');
+    if(hashId && document.getElementById(hashId)){
+      show(hashId);
+      document.querySelector('.app').classList.add('menu-hidden');
+    }
   });
 })();
   function backToCert(){
