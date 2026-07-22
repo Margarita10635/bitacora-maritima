@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020B18"/>
+      <stop offset="45%" stop-color="#0C2D4E"/>
+      <stop offset="100%" stop-color="#0A4A6E"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#1A6B9A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#020B18" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <rect width="1200" height="630" fill="url(#centerGlow)"/>
+  <path d="M0,420 Q150,390 300,415 Q450,440 600,410 Q750,380 900,408 Q1050,436 1200,412 L1200,630 L0,630 Z" fill="#0A3A5E" opacity="0.7"/>
+  <path d="M0,445 Q200,418 400,442 Q600,466 800,438 Q1000,410 1200,440 L1200,630 L0,630 Z" fill="#082E4A" opacity="0.8"/>
+  <path d="M0,470 Q250,448 500,468 Q750,488 1000,462 Q1100,450 1200,465 L1200,630 L0,630 Z" fill="#061F33" opacity="0.9"/>
+  <rect x="0" y="500" width="1200" height="130" fill="#040F1A"/>
+  <ellipse cx="600" cy="490" rx="300" ry="15" fill="#D4AF37" opacity="0.06"/>
+  <line x1="0" y1="430" x2="1200" y2="430" stroke="#1A8FBF" stroke-width="0.5" opacity="0.3"/>
+  <line x1="600" y1="430" x2="0" y2="630" stroke="#1A8FBF" stroke-width="0.3" opacity="0.15"/>
+  <line x1="600" y1="430" x2="300" y2="630" stroke="#1A8FBF" stroke-width="0.3" opacity="0.15"/>
+  <line x1="600" y1="430" x2="600" y2="630" stroke="#1A8FBF" stroke-width="0.3" opacity="0.15"/>
+  <line x1="600" y1="430" x2="900" y2="630" stroke="#1A8FBF" stroke-width="0.3" opacity="0.15"/>
+  <line x1="600" y1="430" x2="1200" y2="630" stroke="#1A8FBF" stroke-width="0.3" opacity="0.15"/>
+  <circle cx="80" cy="50" r="1.2" fill="#fff" opacity="0.6"/>
+  <circle cx="200" cy="30" r="0.8" fill="#fff" opacity="0.5"/>
+  <circle cx="350" cy="70" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="500" cy="20" r="1.5" fill="#D4AF37" opacity="0.5"/>
+  <circle cx="680" cy="45" r="0.9" fill="#fff" opacity="0.6"/>
+  <circle cx="820" cy="25" r="1.2" fill="#fff" opacity="0.4"/>
+  <circle cx="950" cy="60" r="0.8" fill="#D4AF37" opacity="0.5"/>
+  <circle cx="1100" cy="35" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="150" cy="110" r="0.7" fill="#fff" opacity="0.3"/>
+  <circle cx="900" cy="100" r="0.9" fill="#D4AF37" opacity="0.4"/>
+  <rect x="0" y="428" width="1200" height="2" fill="url(#goldGlow)" opacity="0.8"/>
+  <circle cx="230" cy="260" r="115" fill="rgba(212,175,55,0.05)"/>
+  <circle cx="230" cy="260" r="108" fill="#0C2D4E" stroke="#D4AF37" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="230" y="192" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#D4AF37" letter-spacing="2">BITÁCORA</text>
+  <text x="230" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="500" fill="#D4AF37" letter-spacing="2">MARÍTIMA</text>
+  <line x1="185" y1="214" x2="275" y2="214" stroke="#D4AF37" stroke-width="0.8" opacity="0.6"/>
+  <path d="M160,238 Q230,228 230,233 L230,313 Q230,308 160,318 Z" fill="#E8EEF4" stroke="#D4AF37" stroke-width="1.2"/>
+  <path d="M300,238 Q230,228 230,233 L230,313 Q230,308 300,318 Z" fill="#F4EFE3" stroke="#D4AF37" stroke-width="1.2"/>
+  <rect x="227" y="231" width="6" height="84" rx="2" fill="#D4AF37"/>
+  <line x1="172" y1="252" x2="220" y2="249" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="172" y1="262" x2="220" y2="259" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="172" y1="272" x2="220" y2="269" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="240" y1="249" x2="288" y2="252" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="240" y1="259" x2="288" y2="262" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="240" y1="269" x2="288" y2="272" stroke="#8899BB" stroke-width="1.2" stroke-linecap="round"/>
+  <g transform="translate(230, 264)" stroke="#D4AF37" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="-22" r="6" fill="none"/>
+    <line x1="0" y1="-16" x2="0" y2="18"/>
+    <line x1="-11" y1="-8" x2="11" y2="-8"/>
+    <path d="M-16,6 a16,16 0 0 0 32,0"/>
+    <line x1="-16" y1="6" x2="-16" y2="0"/>
+    <line x1="16" y1="6" x2="16" y2="0"/>
+    <line x1="-16" y1="6" x2="-21" y2="10"/>
+    <line x1="16" y1="6" x2="21" y2="10"/>
+  </g>
+  <circle cx="230" cy="260" r="106" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.35"/>
+  <line x1="400" y1="80" x2="400" y2="420" stroke="#1A8FBF" stroke-width="1" opacity="0.4"/>
+  <text x="460" y="135" font-family="Georgia, serif" font-size="13" fill="#D4AF37" letter-spacing="4" font-weight="600" opacity="0.9">GUÍA INDEPENDIENTE</text>
+  <text x="460" y="205" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FFFFFF" opacity="0.95">Bitácora</text>
+  <text x="460" y="272" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FFFFFF" opacity="0.95">Marítima</text>
+  <rect x="460" y="288" width="320" height="2" fill="url(#goldGlow)" opacity="1"/>
+  <text x="460" y="330" font-family="Arial, sans-serif" font-size="20" fill="rgba(180,210,240,0.85)">Todo lo que necesitas saber</text>
+  <text x="460" y="358" font-family="Arial, sans-serif" font-size="20" fill="rgba(180,210,240,0.85)">para tus trámites marítimos</text>
+  <rect x="460" y="385" width="130" height="60" rx="6" fill="rgba(26,143,191,0.1)" stroke="#1A8FBF" stroke-width="0.8"/>
+  <rect x="460" y="385" width="130" height="2" rx="1" fill="#D4AF37" opacity="0.6"/>
+  <text x="525" y="412" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#D4AF37">24</text>
+  <text x="525" y="433" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(180,210,240,0.7)" letter-spacing="1">EMBARCACIONES</text>
+  <rect x="608" y="385" width="130" height="60" rx="6" fill="rgba(26,143,191,0.1)" stroke="#1A8FBF" stroke-width="0.8"/>
+  <rect x="608" y="385" width="130" height="2" rx="1" fill="#D4AF37" opacity="0.6"/>
+  <text x="673" y="412" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#D4AF37">18</text>
+  <text x="673" y="433" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(180,210,240,0.7)" letter-spacing="1">LIBRETAS DE MAR</text>
+  <rect x="756" y="385" width="130" height="60" rx="6" fill="rgba(212,175,55,0.1)" stroke="#D4AF37" stroke-width="0.8"/>
+  <rect x="756" y="385" width="130" height="2" rx="1" fill="#D4AF37" opacity="0.6"/>
+  <text x="821" y="412" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#D4AF37">$50</text>
+  <text x="821" y="433" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(180,210,240,0.7)" letter-spacing="1">ACCESO PERMANENTE</text>
+  <text x="460" y="580" font-family="Arial, sans-serif" font-size="14" fill="rgba(180,210,240,0.4)" letter-spacing="1">bitacora-maritima.vercel.app</text>
+</svg>
