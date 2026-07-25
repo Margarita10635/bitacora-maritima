@@ -1123,7 +1123,50 @@ function showLibTab(tab, el){
 }
 </script>
 
+<script>
+(function(){
+  var VALID_CODES = ["DEMO-2026", "MARINA-VIP", "CAPITAN-2026"];
 
+  function checkAccess(){
+    var params = new URLSearchParams(window.location.search);
+    var urlCode = params.get('code');
+    var saved = null;
+    try{ saved = localStorage.getItem('bitacora_access_code'); }catch(e){}
+
+    var code = urlCode || saved;
+    if(code && VALID_CODES.indexOf(code.trim().toUpperCase()) !== -1){
+      try{ localStorage.setItem('bitacora_access_code', code.trim().toUpperCase()); }catch(e){}
+      document.getElementById('access-gate').style.display = 'none';
+      return true;
+    }
+    document.getElementById('access-gate').style.display = 'flex';
+    return false;
+  }
+
+  function tryUnlock(){
+    var input = document.getElementById('gate-input');
+    var msg = document.getElementById('gate-msg');
+    var code = input.value.trim().toUpperCase();
+    if(!code){
+      msg.textContent = 'Escribe tu clave de acceso.';
+      return;
+    }
+    if(VALID_CODES.indexOf(code) === -1){
+      msg.textContent = 'Esa clave no es válida. Verifica mayúsculas y guiones.';
+      return;
+    }
+    try{ localStorage.setItem('bitacora_access_code', code); }catch(e){}
+    document.getElementById('access-gate').style.display = 'none';
+  }
+
+  document.getElementById('gate-btn').addEventListener('click', tryUnlock);
+  document.getElementById('gate-input').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ tryUnlock(); }
+  });
+
+  checkAccess();
+})();
+</script>
 </div>
 </body>
 </html>
