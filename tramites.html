@@ -226,7 +226,7 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
         Luego sube el cambio a GitHub y Vercel lo activa solo.
      ============================================================ -->
 
-<div id="admin-gate" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div id="admin-gate" style="display:FLEX;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
 <div style="max-width:420px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
 <h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Panel de administradora</h2>
 <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:20px;line-height:1.55">Ingresa tu clave de administradora para generar nuevas claves de acceso.</p>
@@ -237,7 +237,7 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 </div>
 </div>
 
-<div id="admin-panel" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div id="admin-panel" style="display:FLEX;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
 <div style="max-width:460px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
 <h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Generador de claves de acceso</h2>
 <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:24px;line-height:1.6">Cada vez que alguien te pague, genera una clave nueva y entrégasela. Después agrégala manualmente al arreglo <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px">VALID_CODES</code> en este archivo y sube el cambio a GitHub.</p>
