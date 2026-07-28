@@ -69,7 +69,8 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
     <svg viewBox="0 0 200 200" aria-hidden="true"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#15426E" stroke-width="5" stroke-linecap="round"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/><line x1="70" y1="173" x2="130" y2="173" opacity="0.3"/></g></svg>
     <span class="brand-text"><span class="t" style="display:block">Bitácora Marítima</span><span class="s">Trámites navales SEMAR</span></span>
   </a>
-<a href="tramites.html" class="back-link">
+  <a href="index.html" class="back-link"><i class="ti ti-arrow-left" aria-hidden="true"></i> Inicio</a>
+</header>
 <style>
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -225,7 +226,7 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
         Luego sube el cambio a GitHub y Vercel lo activa solo.
      ============================================================ -->
 
-<div id="admin-gate" style="display:FLEX;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div id="admin-gate" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
 <div style="max-width:420px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
 <h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Panel de administradora</h2>
 <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:20px;line-height:1.55">Ingresa tu clave de administradora para generar nuevas claves de acceso.</p>
@@ -236,7 +237,7 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 </div>
 </div>
 
-<div id="admin-panel" style="display:FLEX;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
+<div id="admin-panel" style="display:none;position:fixed;inset:0;background:var(--brand-navy);z-index:1000;align-items:center;justify-content:center;padding:24px">
 <div style="max-width:460px;width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:32px 28px;text-align:center">
 <h2 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Generador de claves de acceso</h2>
 <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:24px;line-height:1.6">Cada vez que alguien te pague, genera una clave nueva y entrégasela. Después agrégala manualmente al arreglo <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px">VALID_CODES</code> en este archivo y sube el cambio a GitHub.</p>
@@ -262,7 +263,8 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
   var ADMIN_KEY = "ADMIN-Alfred@11"; // <-- cambia esto por tu propia clave secreta
 
   function showAdminFlow(){
-    if(window.location.hash === '#admin'){
+    var params = new URLSearchParams(window.location.search);
+    if(window.location.hash === '#admin' && !params.get('code')){
       document.getElementById('admin-gate').style.display = 'flex';
     }
   }
@@ -1147,7 +1149,6 @@ function showLibTab(tab, el){
     if(e.key==='Enter'){ tryUnlock(); }
   });
 
-  // Verificar al cargar - si hay clave válida en URL o guardada, ocultar el cuadro
   (function(){
     var params = new URLSearchParams(window.location.search);
     var code = params.get('code') || '';
@@ -1165,81 +1166,5 @@ function showLibTab(tab, el){
 })();
 </script>
 </div>
-  <script>
-(function(){
-  function isValid(c){
-    if(!c) return false;
-    c = c.trim().toUpperCase();
-    if(c==='DEMO-2026'||c==='MARINA-VIP') return true;
-    if(/^MAR-[A-Z0-9]{5}$/.test(c)) return true;
-    return false;
-  }
-  var btn = document.getElementById('gate-btn');
-  var inp = document.getElementById('gate-input');
-  if(btn) btn.addEventListener('click', function(){
-    var code = inp ? inp.value.trim() : '';
-    var msg = document.getElementById('gate-msg');
-    if(!isValid(code)){
-      if(msg) msg.textContent = 'Clave no válida.';
-      return;
-    }
-    try{ localStorage.setItem('bitacora_access_code', code.toUpperCase()); }catch(e){}
-    var gate = document.getElementById('access-gate');
-    if(gate) gate.style.display = 'none';
-  });
-  if(inp) inp.addEventListener('keydown', function(e){
-    if(e.key==='Enter' && btn) btn.click();
-  });
-  var params = new URLSearchParams(window.location.search);
-  var code = params.get('code') || '';
-  var saved = '';
-  try{ saved = localStorage.getItem('bitacora_access_code') || ''; }catch(e){}
-  var c = code || saved;
-  if(isValid(c)){
-    try{ localStorage.setItem('bitacora_access_code', c.toUpperCase()); }catch(e){}
-    var gate = document.getElementById('access-gate');
-    if(gate) gate.style.display = 'none';
-  }
-})();
-</script>
-  <script>
-(function(){
-  function isValid(c){
-    if(!c) return false;
-    c = c.trim().toUpperCase();
-    if(c==='DEMO-2026'||c==='MARINA-VIP') return true;
-    if(/^MAR-[A-Z0-9]{5}$/.test(c)) return true;
-    return false;
-  }
-  var btn = document.getElementById('gate-btn');
-  var inp = document.getElementById('gate-input');
-  if(btn) btn.addEventListener('click', function(){
-    var code = inp ? inp.value.trim() : '';
-    var msg = document.getElementById('gate-msg');
-    if(!isValid(code)){
-      if(msg) msg.textContent = 'Clave no válida.';
-      return;
-    }
-    try{ localStorage.setItem('bitacora_access_code', code.toUpperCase()); }catch(e){}
-    var gate = document.getElementById('access-gate');
-    if(gate) gate.style.display = 'none';
-  });
-  if(inp) inp.addEventListener('keydown', function(e){
-    if(e.key==='Enter' && btn) btn.click();
-  });
-  var params = new URLSearchParams(window.location.search);
-  var code = params.get('code') || '';
-  var saved = '';
-  try{ saved = localStorage.getItem('bitacora_access_code') || ''; }catch(e){}
-  var c = code || saved;
-  if(isValid(c)){
-    try{ localStorage.setItem('bitacora_access_code', c.toUpperCase()); }catch(e){}
-    var gate = document.getElementById('access-gate');
-    if(gate) gate.style.display = 'none';
-  }
-})();
-</script>
 </body>
 </html>
-
-    
