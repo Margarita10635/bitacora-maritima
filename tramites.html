@@ -1125,13 +1125,10 @@ function showLibTab(tab, el){
 
 <script>
 (function(){
-  var VALID_CODES = ["DEMO-2026", "MARINA-VIP"];
-
-  function isValidCode(code){
+  function isValid(code){
     if(!code) return false;
     var c = code.trim().toUpperCase();
-    // Acepta claves fijas O cualquier clave con formato MAR-XXXXX (5 caracteres alfanumericos)
-    if(VALID_CODES.indexOf(c) !== -1) return true;
+    if(c === 'DEMO-2026' || c === 'MARINA-VIP') return true;
     if(/^MAR-[A-Z0-9]{5}$/.test(c)) return true;
     return false;
   }
@@ -1142,7 +1139,7 @@ function showLibTab(tab, el){
     var saved = null;
     try{ saved = localStorage.getItem('bitacora_access_code'); }catch(e){}
     var code = urlCode || saved;
-    if(isValidCode(code)){
+    if(isValid(code)){
       try{ localStorage.setItem('bitacora_access_code', code.trim().toUpperCase()); }catch(e){}
       document.getElementById('access-gate').style.display = 'none';
       return true;
@@ -1155,14 +1152,8 @@ function showLibTab(tab, el){
     var input = document.getElementById('gate-input');
     var msg = document.getElementById('gate-msg');
     var code = input.value.trim().toUpperCase();
-    if(!code){
-      msg.textContent = 'Escribe tu clave de acceso.';
-      return;
-    }
-    if(!isValidCode(code)){
-      msg.textContent = 'Esa clave no es válida. Verifica mayúsculas y guiones.';
-      return;
-    }
+    if(!code){ msg.textContent = 'Escribe tu clave de acceso.'; return; }
+    if(!isValid(code)){ msg.textContent = 'Esa clave no es válida. Verifica mayúsculas y guiones.'; return; }
     try{ localStorage.setItem('bitacora_access_code', code); }catch(e){}
     document.getElementById('access-gate').style.display = 'none';
   }
