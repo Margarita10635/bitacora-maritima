@@ -1166,6 +1166,43 @@ function showLibTab(tab, el){
 })();
 </script>
 </div>
+  <script>
+(function(){
+  function isValid(c){
+    if(!c) return false;
+    c = c.trim().toUpperCase();
+    if(c==='DEMO-2026'||c==='MARINA-VIP') return true;
+    if(/^MAR-[A-Z0-9]{5}$/.test(c)) return true;
+    return false;
+  }
+  var btn = document.getElementById('gate-btn');
+  var inp = document.getElementById('gate-input');
+  if(btn) btn.addEventListener('click', function(){
+    var code = inp ? inp.value.trim() : '';
+    var msg = document.getElementById('gate-msg');
+    if(!isValid(code)){
+      if(msg) msg.textContent = 'Clave no válida.';
+      return;
+    }
+    try{ localStorage.setItem('bitacora_access_code', code.toUpperCase()); }catch(e){}
+    var gate = document.getElementById('access-gate');
+    if(gate) gate.style.display = 'none';
+  });
+  if(inp) inp.addEventListener('keydown', function(e){
+    if(e.key==='Enter' && btn) btn.click();
+  });
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code') || '';
+  var saved = '';
+  try{ saved = localStorage.getItem('bitacora_access_code') || ''; }catch(e){}
+  var c = code || saved;
+  if(isValid(c)){
+    try{ localStorage.setItem('bitacora_access_code', c.toUpperCase()); }catch(e){}
+    var gate = document.getElementById('access-gate');
+    if(gate) gate.style.display = 'none';
+  }
+})();
+</script>
 </body>
 </html>
 
