@@ -349,11 +349,12 @@ msg.textContent = 'Escribe tu clave de acceso para continuar.';
 msg.style.color = 'rgba(255,255,255,0.55)';
 return;
 }
-try{ localStorage.setItem('bitacora_access_code', code); }catch(e){}
+var codeUpper = code.trim().toUpperCase();
+try{ localStorage.setItem('bitacora_access_code', codeUpper); }catch(e){}
 msg.textContent = 'Clave guardada. Abriendo la bitácora...';
 msg.style.color = '#D4AF37';
 setTimeout(function(){
-window.location.href = 'tramites.html?code=' + encodeURIComponent(code);
+window.location.href = 'tramites.html?code=' + encodeURIComponent(codeUpper);
 }, 600);
 });
 document.getElementById('redeem-input').addEventListener('keydown', function(e){
