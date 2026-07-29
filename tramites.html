@@ -64,9 +64,6 @@ body{margin:0;background:var(--color-background-tertiary);font-family:var(--font
 </head>
 <body>
 <div class="page-wrap">
-<div id="rotate-tip" style="display:none;text-align:center;font-size:11px;color:var(--color-text-secondary);padding:5px 10px;background:var(--color-background-secondary)">
-  <i class="ti ti-rotate" aria-hidden="true" style="font-size:11px;margin-right:3px"></i>Para una mejor vista, gira tu teléfono horizontalmente
-</div>
 <header class="site-header">
   <a href="index.html" class="brand" style="text-decoration:none">
     <svg viewBox="0 0 200 200" aria-hidden="true"><g transform="translate(100,88)" stroke="#D4AF37" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-44" r="9" fill="none"/><line x1="0" y1="-35" x2="0" y2="42"/><line x1="-24" y1="-15" x2="24" y2="-15"/><path d="M-40,10 a40,40 0 0 0 80,0"/><line x1="-40" y1="10" x2="-40" y2="-3"/><line x1="40" y1="10" x2="40" y2="-3"/></g><g stroke="#15426E" stroke-width="5" stroke-linecap="round"><line x1="46" y1="150" x2="154" y2="150" opacity="0.9"/><line x1="58" y1="162" x2="142" y2="162" opacity="0.55"/><line x1="70" y1="173" x2="130" y2="173" opacity="0.3"/></g></svg>
@@ -894,9 +891,6 @@ function renderMed(list){
       <div class="cap-row"><i class="ti ti-phone" aria-hidden="true"></i>${m.t}</div>
       <div class="cap-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:${m.e}">${m.e}</a></div>
       <div class="cap-row"><i class="ti ti-file-certificate" aria-hidden="true"></i>${m.o}</div>
-      <div style="margin-top:6px">
-        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.a+' '+m.u)}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:500;color:#185fa5;background:#e6f1fb;padding:4px 10px;border-radius:20px;text-decoration:none"><i class="ti ti-map-pin" aria-hidden="true" style="font-size:11px"></i>Ver en Maps</a>
-      </div>
     </div>`).join('');
 }
 
@@ -1140,6 +1134,14 @@ function showLibTab(tab, el){
     return false;
   }
 
+  function isValid(code){
+    if(!code) return false;
+    var c = code.trim().toUpperCase();
+    if(c==='DEMO-2026'||c==='MARINA-VIP') return true;
+    if(/^MAR-[A-Z0-9]{5}$/.test(c)) return true;
+    return false;
+  }
+
   function tryUnlock(){
     var input = document.getElementById('gate-input');
     var msg = document.getElementById('gate-msg');
@@ -1172,16 +1174,5 @@ function showLibTab(tab, el){
 })();
 </script>
 </div>
-<script>
-(function(){
-  function checkOri(){
-    var t=document.getElementById('rotate-tip');
-    if(t) t.style.display=(window.innerWidth<768&&window.innerHeight>window.innerWidth)?'block':'none';
-  }
-  checkOri();
-  window.addEventListener('resize',checkOri);
-  window.addEventListener('orientationchange',checkOri);
-})();
-</script>
 </body>
 </html>
